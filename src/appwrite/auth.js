@@ -1,9 +1,9 @@
-import { Client, Account} from 'appwrite';
+import { Client, Account, ID} from 'appwrite';
 import conf from "../conf.js"
-import { retry } from '@reduxjs/toolkit/query';
+
 export class Authservice{
     client = new Client()
-    account
+    account;
 
     constructor(){
         this.client
@@ -12,7 +12,7 @@ export class Authservice{
         this.account = new Account(this.client)
     }
 
-    async   createAccount({email, password, name}){
+    async createAccount({email, password, name}){
          try {
             const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
