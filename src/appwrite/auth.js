@@ -35,7 +35,7 @@ export class AuthService{
         }
     }
 
-    async getCurrentStatus(){
+    async getCurrentUser(){
         try {
             await this.account.get();
         } catch (error) {
@@ -55,4 +55,4 @@ export class AuthService{
 
 const authService = new AuthService()
 
-export default AuthService;
+export default authService;
